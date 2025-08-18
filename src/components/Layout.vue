@@ -1,0 +1,71 @@
+<script setup>
+import SearchBar from './SearchBar.vue';
+</script>
+
+<template>
+  <div>
+    <nav class="bg-gray-800 text-white p-4 flex gap-4 pl-8">
+      <router-link to="/" class="text-2xl font-extrabold bg-gradient-to-r from-yellow-400 via-green-500 to-red-600 bg-clip-text text-transparent drop-shadow-lg tracking-wide hover:scale-100 transition-transform duration-300">
+        🎬 CineScope
+      </router-link>
+      <div class="relative group ml-8">  
+          Filmler  
+        <div class="absolute left-0 mt-2 w-40 bg-white text-gray-800 rounded shadow-lg opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition-opacity duration-200 z-10">
+          <router-link to="/movie/popular" class="block px-4 py-2 hover:bg-gray-100">Popüler</router-link>
+          <router-link to="/movie/now_playing" class="block px-4 py-2 hover:bg-gray-100">Gösterimde</router-link>
+          <router-link to="/movie/upcoming" class="block px-4 py-2 hover:bg-gray-100">Yakında</router-link>
+          <router-link to="/movie/top_rated" class="block px-4 py-2 hover:bg-gray-100">En Çok Oy Alan</router-link>
+        </div>
+      </div>
+       <div class="relative group ml-8">
+          
+          Diziler
+        <div class="absolute left-0 mt-2 w-40 bg-white text-gray-800 rounded shadow-lg opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition-opacity duration-200 z-10">
+          <router-link to="/tv/popular" class="block px-4 py-2 hover:bg-gray-100">Popüler</router-link>
+          <router-link to="/tv/on_the_air" class="block px-4 py-2 hover:bg-gray-100">Günün Programı</router-link>
+          <router-link to="/tv/airing_today" class="block px-4 py-2 hover:bg-gray-100">Televizyonda</router-link>
+          <router-link to="/tv/top_rated" class="block px-4 py-2 hover:bg-gray-100">En Fazla Oy Alanlar</router-link>
+        </div>
+      </div>
+      <!--<router-link to="/diziler" class="ml-4 transition-transform duration-200 hover:scale-120">Diziler</router-link>-->
+      <router-link to="/hakkinda" class="ml-4 transition-transform duration-200 hover:scale-120">Hakkımızda</router-link>
+      <router-link to="/iletisim" class="ml-4 transition-transform duration-200 hover:scale-120">İletişim</router-link>
+      <router-link to="/login" class="ml-140 transition-transform duration-200 hover:scale-120">Giriş</router-link>
+      <div class="relative ml-4 flex items-center">
+        <input
+          type="text"
+          placeholder="Ara..."
+          class="bg-gray-700 text-white rounded-full pl-10 pr-4 py-1 focus:outline-none focus:ring-2 focus:ring-yellow-400 transition-all duration-200 placeholder-gray-300 shadow-md"
+          style="min-width: 160px;"
+        />
+        <span class="absolute left-3 text-gray-400 pointer-events-none">
+          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+        <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2" fill="none"/>
+        <line x1="16.5" y1="16.5" x2="21" y2="21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        </span>
+      </div>
+    </nav>
+
+<!--     <div class="bg-gray-900 text-white font-extrabold p-8 text-center mt-8">
+      <h1 class="text-7xl font-extrabold mb-5 mt-10">Hoş Geldiniz!</h1>
+      <p class="mb-12 text-lg">CineScope, en yeni ve popüler filmleri keşfetmenizi sağlar.Şimdi Keşfedin</p>
+      <SearchBar />
+    </div>
+ -->
+    <main class="p-6">
+      <router-view />
+    </main>
+
+    
+    
+
+
+  </div>
+   <footer>
+    <div class="bg-gray-800 text-white p-4 text-center left-0 w-full">
+      <p class="text-sm">© 2025 CineScope. Tüm hakları saklıdır.</p>
+    </div>
+  </footer>
+
+</template>

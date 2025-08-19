@@ -90,7 +90,7 @@
     v-for="movie in movies.slice(0, 20) || []"
     :key="movie.id"
     :movie="movie"
-    class="inline-block w-33 h-100 align-top flex-shrink-0 text-center ml-5 "
+    class="inline-block w-33 h-87 align-top flex-shrink-0 text-center ml-5 "
   />
 </div>
 

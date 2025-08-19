@@ -1,6 +1,6 @@
  <script setup>
 import { ref, onMounted } from 'vue';
-
+import Sidebar from '../../components/Sidebar.vue';
 import popularTvShows from '../../services/diziService.js';
 import MovieCard from '../../components/MovieCard.vue';
 const tvshows = ref([]);
@@ -17,9 +17,23 @@ onMounted(async () => {
 });
 </script>
 
-<template>
+<!-- <template>
   <div v-if="loading">Yükleniyor...</div>
   <div v-else class="grid grid-cols-5 gap-6 ml-83 mr-20">
     <MovieCard v-for="tvshow in tvshows || []" :key="tvshow.id" :tvshows="tvshow" />
+  </div>
+</template>
+ -->
+
+
+<template>
+  <div class="flex min-h-screen">
+
+    <Sidebar title="Popüler Diziler" />
+
+    <div class="flex-1 p-6 grid grid-cols-5 gap-6">
+      <div v-if="loading" class="text-center col-span-full">Yükleniyor...</div>
+      <MovieCard v-for="tvshow in tvshows || []" :key="tvshow.id" :tvshows="tvshow" />
+    </div>
   </div>
 </template>

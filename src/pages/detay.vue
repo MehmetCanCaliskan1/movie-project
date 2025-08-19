@@ -2,6 +2,7 @@
 import { ref, onMounted } from 'vue';
 import { useRoute } from 'vue-router';
 import axios from 'axios';
+import { useFavoritesStore } from '../favori/favourite.js';
 
 const route = useRoute();
 const item = ref(null); // movie veya tv
@@ -10,6 +11,12 @@ const error = ref(null);
 
 const cast = ref([]); 
 
+const favoritesStore = useFavoritesStore();
+function toggleFav() {
+  if (item.value) {
+    favoritesStore.toggleFavorite(item.value, route.params.type);
+  }
+}
 
 const API_KEY = import.meta.env.VITE_TMDB_API_KEY;
 const BASE_URL = 'https://api.themoviedb.org/3';
@@ -45,13 +52,14 @@ onMounted(async () => {
     <div v-else>
       <!-- Arka plan -->
       <div
-        class="w-full h-96 bg-cover bg-center rounded-lg shadow-lg"
+        class="w-full sm:h-72 md:h-96 bg-cover bg-center rounded-lg shadow-lg relative"
         :style="{
           backgroundImage: item.backdrop_path
             ? `url(https://image.tmdb.org/t/p/original${item.backdrop_path})`
             : 'url(/placeholder.jpg)'
         }"
       >
+       
 
       <!-- İçerik -->
       <div class="mt-6 flex flex-col md:flex-row gap-6">
@@ -66,7 +74,7 @@ onMounted(async () => {
 
         <!-- Detaylar -->
         <div class="flex-1">
-          <h1 class="text-3xl font-bold">{{ item.title || item.name }}</h1>
+          <h1 class="text-4xl font-extrabold">{{ item.title || item.name }}</h1>
           <p class="italic text-gray-400 mb-2">{{ item.tagline || '' }}</p>
           <p class="mb-4">{{ item.overview }}</p>
 
@@ -101,7 +109,22 @@ onMounted(async () => {
       
     </div>
     <div class="mt-8">
-  <h2 class="text-2xl font-bold mb-4">Öne Çıkan Oyuncular</h2>
+  <div class="text-2xl font-bold mb-4 flex justify-between items-center">
+  <span>Öne Çıkan Oyuncular</span>
+
+  <div class="flex items-center space-x-2">
+    <span>Favorilere Ekle</span>
+    <button
+    onclick="window.alert('Favori Durumunuz Değiştirildi')"
+      @click="toggleFav"
+      class="text-3xl transition"
+      :class="favoritesStore.isFavorite(item.id, route.params.type) ? 'text-yellow-400' : 'text-gray-500 hover:text-yellow-400'"
+    >
+      ★
+    </button>
+  </div>
+</div>
+
   <div class="flex gap-4 overflow-x-auto pb-2">
     <div
       v-for="actor in cast.slice(0, 20)" 

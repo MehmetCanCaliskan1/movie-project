@@ -20,10 +20,12 @@ const routes = [
   { path: '/tv/on_the_air', component: () => import('../pages/tv/on_the_air.vue') },
   { path: '/tv/airing_today', component: () => import('../pages/tv/airing_today.vue') },
   { path: '/tv/top_rated', component: () => import('../pages/tv/top_rated.vue') },
+
   { path: '/hakkinda', component: hakkimizda },
   { path: '/iletisim', component: iletisim },
   { path: '/login', component: login },
   { path: '/arama', component: () => import('../pages/arama.vue') },
+  
   { path: '/pages/detay/:type/:id', component: detay },
 ];
 

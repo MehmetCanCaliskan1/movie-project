@@ -104,11 +104,10 @@
 <script setup>
 import { MagnifyingGlassIcon } from "@heroicons/vue/24/solid";
 import { ref, onMounted } from 'vue';
-import popular from '../services/movieService.js';
+import popular, { upcoming } from '../services/movieService.js';
 import SearchBar from '../components/SearchBar.vue';
 import MovieCard from '../components/MovieCard.vue';
 import {  watch } from 'vue';
-
 const selected = ref('today');
 
 const query = ref('');
@@ -158,14 +157,20 @@ watch(query, (newValue) => {
 
 const movies = ref([]);
 const loading2 = ref(true);
-onMounted(async () => {
+const loadMovies = async () => {
+  loading2.value = true;
   try {
-    movies.value = await popular();
-    
+    if (selected.value === 'today') {
+      movies.value = await popular();
+    } else if (selected.value === 'week') {
+      movies.value = await upcoming();
+    }
   } catch (err) {
     console.error('Film verisi alınamadı', err);
   } finally {
     loading2.value = false;
   }
-});
+};
+onMounted(loadMovies);
+watch(selected, loadMovies);
 </script>

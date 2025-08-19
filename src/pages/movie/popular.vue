@@ -16,7 +16,10 @@ onMounted(async () => {
     loading.value = false;
   }
 });
+
+
 </script>
+
 
 <template>
   <div class="flex min-h-screen">

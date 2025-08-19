@@ -8,7 +8,7 @@ import SearchBar from './SearchBar.vue';
       <router-link to="/" class="text-2xl font-extrabold bg-gradient-to-r from-yellow-400 via-green-500 to-red-600 bg-clip-text text-transparent drop-shadow-lg tracking-wide hover:scale-100 transition-transform duration-300">
         🎬 CineScope
       </router-link>
-      <div class="relative group ml-8">  
+      <div class="relative group ml-8 cursor-pointer">  
           Filmler  
         <div class="absolute left-0 mt-2 w-40 bg-white text-gray-800 rounded shadow-lg opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition-opacity duration-200 z-10">
           <router-link to="/movie/popular" class="block px-4 py-2 hover:bg-gray-100">Popüler</router-link>
@@ -17,7 +17,7 @@ import SearchBar from './SearchBar.vue';
           <router-link to="/movie/top_rated" class="block px-4 py-2 hover:bg-gray-100">En Çok Oy Alan</router-link>
         </div>
       </div>
-       <div class="relative group ml-8">
+       <div class="relative group ml-8 cursor-pointer">
           
           Diziler
         <div class="absolute left-0 mt-2 w-40 bg-white text-gray-800 rounded shadow-lg opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition-opacity duration-200 z-10">

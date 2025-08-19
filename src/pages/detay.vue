@@ -50,15 +50,15 @@ onMounted(async () => {
     <div v-else-if="error" class="text-red-500">{{ error }}</div>
 
     <div v-else>
-      <!-- Arka plan -->
-      <div
+    <!--   Arka plan
+      div
         class="w-full sm:h-72 md:h-96 bg-cover bg-center rounded-lg shadow-lg relative"
         :style="{
           backgroundImage: item.backdrop_path
             ? `url(https://image.tmdb.org/t/p/original${item.backdrop_path})`
             : 'url(/placeholder.jpg)'
         }"
-      >
+      > -->
        
 
       <!-- İçerik -->
@@ -92,7 +92,7 @@ onMounted(async () => {
               {{ item.runtime || (item.episode_run_time?.[0] ?? '-') }} dk
             </span>
           </div>
-
+          <!-- </div> -->
           <!-- Türler -->
           <div class="flex gap-2 flex-wrap">
             <span
@@ -107,7 +107,7 @@ onMounted(async () => {
         </div>
       </div>
       
-    </div>
+    
     <div class="mt-8">
   <div class="text-2xl font-bold mb-4 flex justify-between items-center">
   <span>Öne Çıkan Oyuncular</span>

@@ -44,11 +44,14 @@ import { defineProps, computed } from 'vue';
 const props = defineProps({
   movie: {
     type: Object,
-    required: false
+    required: false,
+    favourite: Boolean
   },
   tvshows: {
     type: Object,
-    required: false
+    required: false,
+    favourite: Boolean
+
   }
 });
 
@@ -70,7 +73,7 @@ const rating = computed(() => props.movie?.vote_average || props.tvshows?.vote_a
 
     <img :src="posterUrl" alt="Poster" class="w-full">
     <div class="p-4">
-      <h2 class="text-xl font-bold text-white mb-2">{{ title }}</h2>
+      <h2 class="text-xl font-bold text-white mb-2 ">{{ title }}</h2>
       <p class="text-gray-400">Rating: {{ rating }}</p>
 <!--       <p class="text-gray-400">{{ release_date }}</p>
  -->    </div>

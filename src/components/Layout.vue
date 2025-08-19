@@ -27,39 +27,33 @@ import SearchBar from './SearchBar.vue';
           <router-link to="/tv/top_rated" class="block px-4 py-2 hover:bg-gray-100">En Fazla Oy Alanlar</router-link>
         </div>
       </div>
-      <!--<router-link to="/diziler" class="ml-4 transition-transform duration-200 hover:scale-120">Diziler</router-link>-->
       <router-link to="/hakkinda" class="ml-4 transition-transform duration-200 hover:scale-120">Hakkımızda</router-link>
       <router-link to="/iletisim" class="ml-4 transition-transform duration-200 hover:scale-120">İletişim</router-link>
       <router-link to="/login" class="ml-140 transition-transform duration-200 hover:scale-120">Giriş</router-link>
       <div class="relative ml-4 flex items-center">
-        <input
-          type="text"
-          placeholder="Ara..."
-          class="bg-gray-700 text-white rounded-full pl-10 pr-4 py-1 focus:outline-none focus:ring-2 focus:ring-yellow-400 transition-all duration-200 placeholder-gray-300 shadow-md"
-          style="min-width: 160px;"
-        />
-        <span class="absolute left-3 text-gray-400 pointer-events-none">
-          <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2" fill="none"/>
-        <line x1="16.5" y1="16.5" x2="21" y2="21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-          </svg>
-        </span>
+
+      <button onclick="document.getElementById('search').focus()" class="-mt-1.5 absolute left-3 text-gray-300 hover:text-white transition-colors duration-200 cursor-pointer">
+  <svg xmlns="http://www.w3.org/2000/svg" 
+       class="h-7 w-20" 
+       fill="none" 
+       viewBox="0 0 24 24" 
+       stroke="currentColor">
+    <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2" fill="none"/>
+    <line x1="16.5" y1="16.5" x2="21" y2="21" 
+          stroke="currentColor" 
+          stroke-width="2" 
+          stroke-linecap="round"/>
+  </svg>
+</button>
+
       </div>
     </nav>
 
-<!--     <div class="bg-gray-900 text-white font-extrabold p-8 text-center mt-8">
-      <h1 class="text-7xl font-extrabold mb-5 mt-10">Hoş Geldiniz!</h1>
-      <p class="mb-12 text-lg">CineScope, en yeni ve popüler filmleri keşfetmenizi sağlar.Şimdi Keşfedin</p>
-      <SearchBar />
-    </div>
- -->
     <main class="p-6">
       <router-view />
     </main>
 
-    
-    
-
+  
 
   </div>
    <footer>

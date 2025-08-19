@@ -7,6 +7,7 @@
         v-model="query"
         class="border-none outline-none focus:ring-0 flex-1 text-black" 
         placeholder="Film veya Dizi Ara..."
+        id="search"
       />
     </div>
 
@@ -83,15 +84,17 @@
     </button>
   </div>  </span>
 
-  <div class="flex gap-4 overflow-x-auto whitespace-nowrap py-4">
-<div class="flex flex-nowrap gap-1 justify-center">
+  <div class="flex gap-4 overflow-x-auto break-words py-4">
+<div  class="flex gap-1 justify-center">
   <MovieCard
     v-for="movie in movies.slice(0, 20) || []"
     :key="movie.id"
     :movie="movie"
-    class="inline-block w-32 align-top flex-shrink-0  text-center ml-5 "
+    class="inline-block w-33 h-100 align-top flex-shrink-0 text-center ml-5 "
   />
 </div>
+
+
 </div>
 
 

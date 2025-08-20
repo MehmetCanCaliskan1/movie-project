@@ -9,6 +9,7 @@ import upcoming from '../pages/movie/upcoming.vue';
 import topRated from '../pages/movie/topRated.vue';
 import popularTVShows from '../pages/tv/popular.vue';
 import detay  from '../pages/detay.vue';
+import Arama from '../pages/arama.vue';
 const routes = [
   { path: '/', component: home },
   { path: '/movie/popular', component: popular },
@@ -24,7 +25,7 @@ const routes = [
   { path: '/hakkinda', component: hakkimizda },
   { path: '/iletisim', component: iletisim },
   { path: '/login', component: login },
-  { path: '/arama', component: () => import('../pages/arama.vue') },
+  { path: '/arama', component: Arama},
   
   { path: '/pages/detay/:type/:id', component: detay },
 ];

@@ -7,13 +7,10 @@ const props = defineProps({
   movie: {
     type: Object,
     required: false,
-    favourite: Boolean
   },
   tvshows: {
     type: Object,
     required: false,
-    favourite: Boolean
-
   }
 });
 /* const favoritesStore = useFavoritesStore();
@@ -30,6 +27,9 @@ const posterUrl = computed(() => {
 
 const title = computed(() => props.movie?.title || props.tvshows?.name);
 const rating = computed(() => props.movie?.vote_average || props.tvshows?.vote_average);
+
+
+
  </script>
 
 <template>

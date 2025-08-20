@@ -122,10 +122,4 @@ const showFilter = ref(false);
 const toggleFilter = () => {
   showFilter.value = !showFilter.value;
 };
-
-
-
-
-
-
 </script>

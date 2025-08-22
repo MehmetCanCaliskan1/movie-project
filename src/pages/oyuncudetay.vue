@@ -42,45 +42,47 @@ onMounted(() => fetchPlayer());
 </script>
 
 <template>
-  <div v-if="loading">Yükleniyor...</div>
-  <div v-else-if="error" class="text-red-500">{{ error }}</div>
+  <div v-if="loading" class="text-slate-600">Yükleniyor...</div>
+  <div v-else-if="error" class="text-red-600">{{ error }}</div>
   <div v-else class="flex items-start gap-6">
     <!-- Oyuncu Fotoğrafı -->
     <img 
       :src="`https://image.tmdb.org/t/p/w500${player.profile_path}`" 
       alt="Oyuncu Fotoğrafı"
-      class="w-50 h-auto rounded"
+      class="w-50 h-auto rounded shadow-md border border-slate-300"
     >
     <div>
-      <h1 class="font-extrabold text-5xl mb-3">{{ player.name }}</h1>
-      <p class="font-bold">Doğum Tarihi: {{ player.birthday }}</p>
-      <p>Doğum Yeri: {{ player.place_of_birth }}</p>
-      <p class="mt-2 text-xl text-bold text-red-500">Biyografi</p>
-      <p class="mt-4 text-sm">{{ player.biography }}</p>
+      <h1 class="font-extrabold text-5xl mb-3 text-slate-900">{{ player.name }}</h1>
+      <p class="font-bold text-slate-700">Doğum Tarihi: <span class="font-normal">{{ player.birthday }}</span></p>
+      <p class="text-slate-700">Doğum Yeri: <span class="font-normal">{{ player.place_of_birth }}</span></p>
+      <p class="mt-2 text-xl font-bold text-indigo-600">Biyografi</p>
+      <p class="mt-4 text-sm text-slate-800 leading-relaxed">{{ player.biography }}</p>
     </div>
-
   </div>
 
-
-    <div v-if="movies.length">
-      <h2 class="text-2xl font-bold mt-6 mb-3">Filmleri</h2>
-      <div class="-ml-7 grid grid-cols-2 md:grid-cols-10 gap-7 mr-4">
-        <MovieCard 
-        v-for="movie in movies.slice(0,10)" :key="movie.id" :movie="movie" 
-    class="inline-block w-33 h-80 align-top  text-center ml-5 flex-nowrap"/>
-      </div>
+  <div v-if="movies.length">
+    <h2 class="text-2xl font-bold mt-6 mb-3 text-slate-900">Oynadığı Filmler</h2>
+    <div class="flex overflow-x-auto space-x-5 ml-2 pb-3">
+      <MovieCard 
+        v-for="movie in movies.slice(0,30)" 
+        :key="movie.id" 
+        :movie="movie" 
+        class="w-33 h-85 flex-shrink-0 text-center bg-white border border-slate-200 shadow-sm hover:shadow-md"
+      />
     </div>
+  </div>
 
-    <div v-if="tvShows.length">
-      <h2 class="text-2xl font-bold mt-6 mb-3">Dizileri</h2>
-      <div class="-ml-7 grid grid-cols-2 md:grid-cols-10 gap-7 mr-4">
-        <MovieCard v-for="tv in tvShows.slice(0,10)" :key="tv.id" :tvshows="tv" 
-    class="inline-block w-33 h-80 align-top  text-center ml-5 flex-nowrap"/>
-      </div>
+  <div v-if="tvShows.length">
+    <h2 class="text-2xl font-bold mt-6 mb-3 text-slate-900">Oynadığı Diziler</h2>
+    <div class="flex overflow-x-auto space-x-5 ml-2 pb-3">
+      <MovieCard 
+        v-for="tv in tvShows.slice(0,30)" 
+        :key="tv.id" 
+        :tvshows="tv" 
+        class="w-33 h-85 flex-shrink-0 text-center bg-white border border-slate-200 shadow-sm hover:shadow-md"
+      />
     </div>
-
-
-
-  
+  </div>
 </template>
+
 

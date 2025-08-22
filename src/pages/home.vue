@@ -1,48 +1,5 @@
 <template>
-  <div class="ml-4 -mt-5 relative w-full">
-    <div class="flex items-center bg-white rounded px-3 py-2">
-      <MagnifyingGlassIcon class="w-7 h-7 text-black-500 mr-2 font-extrabold" />
-      <input 
-        type="text" 
-        v-model="query"
-        class="border-none outline-none focus:ring-0 flex-1 text-black" 
-        placeholder="Film veya Dizi Ara..."
-        id="search"
-      />
-    </div>
-
-    <div
-      v-if=" query.length >= 3"
-      class="absolute top-full left-0 w-full bg-white rounded-lg shadow-lg mt-1 max-h-84 min-w-360 overflow-auto z-50 -ml-3.5"
-    >
-      <ul class="divide-y">
-        <li
-          v-for="movie in movieresults"
-          :key="'movie-'+movie.id"
-          class="flex items-center gap-2 p-2 hover:bg-gray-100 cursor-pointer"
-          @click="$router.push(`/pages/detay/movie/${movie.id}`)"
-        >
-          <span class="text-gray-500">🎞️</span>
-          <span>{{ movie.title }}</span>
-          <span class="ml-auto text-gray-400 text-sm">Filmlerde</span>
-        </li>
-
-        <li
-          v-for="tv in tvresults"
-          :key="'tv-'+tv.id"
-          class="flex items-center gap-2 p-2 hover:bg-gray-100 cursor-pointer"
-          @click="$router.push(`/pages/detay/tv/${tv.id}`)"
-        >
-          <span class="text-gray-500">🖥️</span>
-          <span>{{ tv.name }}</span>
-          <span class="ml-auto text-gray-400 text-sm">Dizilerde</span>
-        </li>
-
-        <li v-if="loading" class="p-2 text-center text-gray-500">Yükleniyor...</li>
-        <li v-else-if="!movieresults.length && !tvresults.length && !loading" class="p-2 text-center text-gray-500">Sonuç Bulunamadı</li>
-      </ul>
-    </div>
-  </div>
+   <SearchBar1 />
 
   <div class="bg-gray-900 text-white font-extrabold p-8 text-center mt-1 mb-8"
        style="background-image: url(''); background-size: cover; background-position: center;">
@@ -50,7 +7,7 @@
     <p class="mb-12 text-lg">
       CineScope, en yeni ve popüler filmleri keşfetmenizi sağlar. Şimdi Keşfedin
     </p>
-    <SearchBar />
+    <SearchBar2 />
   </div>
 
   <div class="ml-5 mb-4">
@@ -127,8 +84,9 @@ import { MagnifyingGlassIcon } from "@heroicons/vue/24/solid";
 import { ref, watch, onMounted } from 'vue';
 import popular, { upcoming, topRated } from '../services/movieService.js';
 import { topRatedTVShows } from '../services/diziService.js';
-import SearchBar from '../components/SearchBar.vue';
+import SearchBar2 from '../components/SearchBar2.vue';
 import MovieCard from '../components/MovieCard.vue';
+import SearchBar1  from '../components/SearchBar1.vue';
 
 const query = ref('');
 const movieresults = ref([]);
@@ -180,7 +138,6 @@ const loadPopularMovies = async () => {
     popularMovies.value = [];
   }
 };
-
 
 watch(mainSelected, loadMainMovies);
 watch(popularSelected, loadPopularMovies);

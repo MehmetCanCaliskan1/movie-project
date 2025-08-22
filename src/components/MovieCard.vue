@@ -33,13 +33,13 @@ const rating = computed(() => props.movie?.vote_average || props.tvshows?.vote_a
  </script>
 
 <template>
-  <div class="bg-gray-900 rounded-lg overflow-hidden shadow-lg hover:scale-105 transition-transform cursor-pointer"
+  <div class="bg-white rounded-lg overflow-hidden shadow-lg hover:scale-105 transition-transform cursor-pointer"
   @click="$router.push(`/pages/detay/${props.movie ? 'movie' : 'tv'}/${props.movie?.id || props.tvshows?.id}`)">
 
     <img :src="posterUrl" alt="Poster" class="w-full">
     <div class="p-4">
-      <h2 class="text-md font-bold text-white mb-2 text-center ">{{ title }}</h2>
-      <p class="text-gray-400 text-center">Rating: {{ rating?.toFixed(1) ?? 'N/A'}}</p>
+      <h2 class="text-md font-extrabold text-black mb-2.5 text-center ">{{ title }}</h2>
+      <p class="text-gray-600 text-center font-extrabold">Rating: {{ rating?.toFixed(1) ?? 'N/A'}}</p>
 <!--        <p class="text-gray-400 text-center">{{ release_date }}</p>
  -->   </div>
   

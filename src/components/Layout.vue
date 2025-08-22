@@ -27,7 +27,11 @@ import SearchBar from './SearchBar.vue';
           <router-link to="/tv/top_rated" class="block px-4 py-2 hover:bg-gray-100">En Fazla Oy Alanlar</router-link>
         </div>
       </div>
-      <router-link to="/hakkinda" class="ml-4 transition-transform duration-200 hover:scale-120">Hakkımızda</router-link>
+      
+<!--       <router-link to="/oyuncudetay" class="ml-4 transition-transform duration-200 hover:scale-120">Oyuncular</router-link>
+ -->    
+
+ <router-link to="/hakkinda" class="ml-4 transition-transform duration-200 hover:scale-120">Hakkımızda</router-link>
       <router-link to="/iletisim" class="ml-4 transition-transform duration-200 hover:scale-120">İletişim</router-link>
       <router-link to="/login" class="ml-140 transition-transform duration-200 hover:scale-120">Giriş</router-link>
       <div class="relative ml-4 flex items-center">

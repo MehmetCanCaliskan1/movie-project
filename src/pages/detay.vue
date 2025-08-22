@@ -129,7 +129,8 @@ onMounted(async () => {
     <div
       v-for="actor in cast.slice(0, 20)" 
       :key="actor.id"
-      class="flex-shrink-0 w-32 text-center"
+      class="flex-shrink-0 w-32 text-center cursor-pointer"
+      @click="$router.push(`/pages/oyuncudetay/${actor.id}`)"
     >
       <img
         :src="actor.profile_path 

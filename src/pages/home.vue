@@ -101,13 +101,23 @@
 
   <div class="flex gap-4 overflow-x-auto break-words py-4">
     <div class="flex gap-1 justify-center">
-      <MovieCard
-        v-for="movie in popularMovies.slice(0,20) || tvshow in popularTVShows.slice(0,20)|| []"
-        :key="movie.id || tvshow.id"
-        :movie="movie"
-        class="inline-block w-33 h-87 align-top flex-shrink-0 text-center ml-5"
-      />
-    </div>
+  <!-- Filmler -->
+  <MovieCard
+    v-for="movie in popularMovies.slice(0,20)||[]"
+    :key="movie.id"
+    :movie="movie"
+    class="inline-block w-33 h-87 align-top flex-shrink-0 text-center ml-5"
+  />
+
+  <!-- Diziler -->
+  <MovieCard
+    v-for="tvshow in popularTVShows.slice(0,20)||[]"
+    :key="tvshow.id"
+    :tvshows="tvshow"
+    class="inline-block w-33 h-87 align-top flex-shrink-0 text-center ml-5"
+  />
+</div>
+
   </div>
 
 </template>
@@ -154,16 +164,23 @@ const popularSelected = ref('Filmler');
 
 const mainMovies = ref([]);
 const popularMovies = ref([]);
-
+const popularTVShows = ref([]);
 const loadMainMovies = async () => {
   if(mainSelected.value === 'today') mainMovies.value = await popular();
   else if(mainSelected.value === 'week') mainMovies.value = await upcoming();
 };
 
+
 const loadPopularMovies = async () => {
-  if(popularSelected.value === 'Filmler') popularMovies.value = await topRated();
-  else if(popularSelected.value === 'Diziler') popularMovies.value = await topRatedTVShows();
+  if (popularSelected.value === 'Filmler') {
+    popularMovies.value = await topRated();
+    popularTVShows.value = [];
+  } else if (popularSelected.value === 'Diziler') {
+    popularTVShows.value = await topRatedTVShows();
+    popularMovies.value = [];
+  }
 };
+
 
 watch(mainSelected, loadMainMovies);
 watch(popularSelected, loadPopularMovies);

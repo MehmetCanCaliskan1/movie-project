@@ -39,7 +39,7 @@ const rating = computed(() => props.movie?.vote_average || props.tvshows?.vote_a
     <img :src="posterUrl" alt="Poster" class="w-full">
     <div class="p-4">
       <h2 class="text-md font-bold text-white mb-2 text-center ">{{ title }}</h2>
-      <p class="text-gray-400 text-center">Rating: {{ rating.toFixed(1) }}</p>
+      <p class="text-gray-400 text-center">Rating: {{ rating?.toFixed(1) ?? 'N/A'}}</p>
 <!--        <p class="text-gray-400 text-center">{{ release_date }}</p>
  -->   </div>
   

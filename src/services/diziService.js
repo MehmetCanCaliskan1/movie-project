@@ -30,6 +30,6 @@ export function airingTodayTVShows() {
   return fetchTVShows('/tv/airing_today');
 }
 
-export function searchTVshows(){
-  return fetchTVShows('search/tv',query);
+export function searchTVShows(query){
+  return fetchTVShows('/search/tv',query);
 }

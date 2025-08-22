@@ -9,7 +9,7 @@ async function fetchMovies(endpoint, query = '') {
     params: {
       api_key: API_KEY,
       language: 'tr-TR',
-      query // sadece search için kullanılır
+      query 
     }
   });
   return res.data.results;

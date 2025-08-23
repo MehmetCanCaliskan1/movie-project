@@ -45,7 +45,6 @@ onMounted(() => fetchPlayer());
   <div v-if="loading" class="text-slate-600">Yükleniyor...</div>
   <div v-else-if="error" class="text-red-600">{{ error }}</div>
   <div v-else class="flex items-start gap-6">
-    <!-- Oyuncu Fotoğrafı -->
     <img 
       :src="`https://image.tmdb.org/t/p/w500${player.profile_path}`" 
       alt="Oyuncu Fotoğrafı"

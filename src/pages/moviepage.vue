@@ -39,7 +39,6 @@ watch(
   }
 );
 
-// Sıralama fonksiyonu
 const applySort = (sort) => {
   let sorted = [...movies.value];
   if (sort === 'Popülerliğe Göre Azalan') sorted.sort((a, b) => b.popularity - a.popularity);

@@ -27,8 +27,8 @@
         </div>
       </div>
       
-<!--       <router-link to="/oyuncudetay" class="ml-4 transition-transform duration-200 hover:scale-120">Oyuncular</router-link>
- -->    
+  <router-link to="/oyuncular" class="ml-4 transition-transform duration-200 hover:scale-120">Oyuncular</router-link>
+ 
 
  <router-link to="/hakkinda" class="ml-4 transition-transform duration-200 hover:scale-120">Hakkımızda</router-link>
       <router-link to="/iletisim" class="ml-4 transition-transform duration-200 hover:scale-120">İletişim</router-link>

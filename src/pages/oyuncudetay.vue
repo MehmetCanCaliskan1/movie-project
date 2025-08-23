@@ -64,7 +64,7 @@ onMounted(() => fetchPlayer());
     <h2 class="text-2xl font-bold mt-6 mb-3 text-slate-900">Oynadığı Filmler</h2>
     <div class="flex overflow-x-auto space-x-5 ml-2 pb-3">
       <MovieCard 
-        v-for="movie in movies.slice(0,30)" 
+        v-for="movie in movies.filter(m => m.poster_path).slice(0,30)" 
         :key="movie.id" 
         :movie="movie" 
         class="w-33 h-85 flex-shrink-0 text-center bg-white border border-slate-200 shadow-sm hover:shadow-md"
@@ -76,7 +76,7 @@ onMounted(() => fetchPlayer());
     <h2 class="text-2xl font-bold mt-6 mb-3 text-slate-900">Oynadığı Diziler</h2>
     <div class="flex overflow-x-auto space-x-5 ml-2 pb-3">
       <MovieCard 
-        v-for="tv in tvShows.slice(0,30)" 
+        v-for="tv in tvShows.filter(m=>m.poster_path).slice(0,30)" 
         :key="tv.id" 
         :tvshows="tv" 
         class="w-33 h-85 flex-shrink-0 text-center bg-white border border-slate-200 shadow-sm hover:shadow-md"

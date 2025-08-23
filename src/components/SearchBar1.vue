@@ -56,7 +56,7 @@ watch(query, async (newVal) => {
     >
       <ul class="divide-y">
         <li
-          v-for="movie in movieresults"
+          v-for="movie in movieresults.slice(0,7)"
           :key="'movie-'+movie.id"
           class="flex items-center gap-2 p-2 hover:bg-gray-100 cursor-pointer"
           @click="router.push(`/pages/detay/movie/${movie.id}`)"
@@ -67,7 +67,7 @@ watch(query, async (newVal) => {
         </li>
 
         <li
-          v-for="tv in tvresults"
+          v-for="tv in tvresults.slice(0,7)"
           :key="'tv-'+tv.id"
           class="flex items-center gap-2 p-2 hover:bg-gray-100 cursor-pointer"
           @click="router.push(`/pages/detay/tv/${tv.id}`)"

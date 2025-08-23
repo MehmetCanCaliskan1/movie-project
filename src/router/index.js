@@ -11,6 +11,7 @@ import popularTVShows from '../pages/tv/popular.vue';
 import detay  from '../pages/detay.vue';
 import Arama from '../pages/arama.vue';
 import oyuncudetay from '../pages/oyuncudetay.vue';
+import oyuncular from '../pages/oyuncular.vue'
 const routes = [
   { path: '/', component: home },
   { path: '/movie/popular', component: popular },
@@ -29,7 +30,8 @@ const routes = [
   { path: '/arama', component: Arama},
   
   { path: '/pages/detay/:type/:id', component: detay },
-  { path: '/pages/oyuncudetay/:id', component: oyuncudetay}
+  { path: '/pages/oyuncudetay/:id', component: oyuncudetay},
+  { path: '/oyuncular', component: oyuncular},
 
 ];
 

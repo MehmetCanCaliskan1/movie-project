@@ -3,7 +3,7 @@ import { ref, onMounted } from 'vue';
 import { useRoute } from 'vue-router';
 import axios from 'axios';
 import { useFavoritesStore } from '../favori/favourite.js';
-
+import SearchBar1 from '../components/SearchBar1.vue';
 const route = useRoute();
 const item = ref(null); // movie veya tv
 const loading = ref(true);
@@ -44,6 +44,7 @@ onMounted(async () => {
 </script>
 
 <template>
+ <SearchBar1 class="mb-1"/>
   <div class="max-w-5xl mx-auto p-6 text-white bg-[#1a1a1a]">
     <!-- Yükleniyor / Hata -->
     <div v-if="loading" class="text-center">Yükleniyor...</div>
@@ -91,6 +92,7 @@ onMounted(async () => {
               ⏱
               {{ item.runtime || (item.episode_run_time?.[0] ?? '-') }} dk
             </span>
+           <span v-if="item.adult">18+</span>
           </div>
           <!-- </div> -->
           <!-- Türler -->
@@ -127,21 +129,22 @@ onMounted(async () => {
 
   <div class="flex gap-4 overflow-x-auto pb-2">
     <div
-      v-for="actor in cast.slice(0, 20)" 
-      :key="actor.id"
-      class="flex-shrink-0 w-32 text-center cursor-pointer"
-      @click="$router.push(`/pages/oyuncudetay/${actor.id}`)"
-    >
-      <img
-        :src="actor.profile_path 
-          ? `https://image.tmdb.org/t/p/w200${actor.profile_path}` 
-          : '/placeholder.jpg'"
-        alt="Oyuncu"
-        class="w-32 h-48 object-cover rounded-lg shadow"
-      />
-      <p class="mt-2 text-sm font-semibold">{{ actor.name }}</p>
-      <p class="text-xs text-gray-400">({{ actor.character }})</p>
-    </div>
+  v-for="actor in [...cast].sort((a, b) => (b.profile_path ? 1 : 0) - (a.profile_path ? 1 : 0)).slice(0, 20)" 
+  :key="actor.id"
+  class="flex-shrink-0 w-32 text-center cursor-pointer"
+  @click="$router.push(`/pages/oyuncudetay/${actor.id}`)"
+>
+  <img
+    :src="actor.profile_path 
+      ? `https://image.tmdb.org/t/p/w200${actor.profile_path}` 
+      : '/placeholder.jpg'"
+    alt="Oyuncu"
+    class="w-32 h-48 object-cover rounded-lg shadow"
+  />
+  <p class="mt-2 text-sm font-semibold">{{ actor.name }}</p>
+  <p class="text-xs text-gray-400">({{ actor.character }})</p>
+</div>
+
   </div>
 </div>
 </div>

@@ -1,4 +1,4 @@
- <script setup>
+<!--  <script setup>
 import { ref, onMounted } from 'vue';
 
 import Sidebar from '../../components/Sidebar.vue';
@@ -62,3 +62,4 @@ const applyFilter = (filters) => {
     </div>
   </div>
 </template>
+ -->

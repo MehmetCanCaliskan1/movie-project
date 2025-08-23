@@ -1,4 +1,4 @@
- <script setup>
+<!--  <script setup>
 import { ref, onMounted } from 'vue';
 import Sidebar from '../../components/Sidebar.vue';
 import { topRated }  from '../../services/movieService.js';
@@ -61,3 +61,4 @@ const applyFilter = (filters) => {
     </div>
   </div>
 </template>
+ -->

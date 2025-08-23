@@ -10,10 +10,10 @@
       <div class="relative group ml-8 cursor-pointer">  
           Filmler  
         <div class="absolute left-0 mt-2 w-40 bg-white text-gray-800 rounded shadow-lg opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition-opacity duration-200 z-10">
-          <router-link to="/movie/popular" class="block px-4 py-2 hover:bg-gray-100">Popüler</router-link>
-          <router-link to="/movie/now_playing" class="block px-4 py-2 hover:bg-gray-100">Gösterimde</router-link>
-          <router-link to="/movie/upcoming" class="block px-4 py-2 hover:bg-gray-100">Yakında</router-link>
-          <router-link to="/movie/top_rated" class="block px-4 py-2 hover:bg-gray-100">En Çok Oy Alan</router-link>
+          <router-link to="/movies/popular" class="block px-4 py-2 hover:bg-gray-100">Popüler</router-link>
+          <router-link to="/movies/now_playing" class="block px-4 py-2 hover:bg-gray-100">Gösterimde</router-link>
+          <router-link to="/movies/upcoming" class="block px-4 py-2 hover:bg-gray-100">Yakında</router-link>
+          <router-link to="/movies/top_rated" class="block px-4 py-2 hover:bg-gray-100">En Çok Oy Alan</router-link>
         </div>
       </div>
        <div class="relative group ml-8 cursor-pointer">

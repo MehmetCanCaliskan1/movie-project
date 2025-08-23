@@ -20,9 +20,13 @@
 
      <div class="flex justify-center  gap-2 -ml-3 font-extrabold">Sayfa</div>
     <div class="flex justify-center mt-4 gap-2">
-      <button @click="prevPage" :disabled="page === 1" class="px-4 py-2 bg-gray-300 rounded cursor-pointer">Önceki</button>
-      <span class="px-2 py-2">{{ page }}</span>
-      <button @click="nextPage" class="px-4 py-2 bg-gray-300 rounded cursor-pointer">Sonraki</button>
+      <button @click="prevPage" :disabled="page === 1" 
+  class="px-4 py-2 bg-gray-300 rounded cursor-pointer hover:bg-blue-400 transition-colors duration-300"
+      >Önceki</button>
+      <span class="px-2 py-2 text-xl">{{ page }}</span>
+      <button @click="nextPage" 
+  class="px-4 py-2 bg-gray-300 rounded cursor-pointer hover:bg-blue-400 transition-colors duration-300"
+      >Sonraki</button>
       <button></button>
     </div>
   </div>

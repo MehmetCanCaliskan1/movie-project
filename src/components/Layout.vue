@@ -59,10 +59,36 @@
   
 
   </div>
-   <footer>
-    <div class="bg-gray-800 text-white p-4 text-center left-0 w-full">
-      <p class="text-sm">© 2025 CineScope. Tüm hakları saklıdır.</p>
+  <footer class="bg-gray-900 text-gray-300 py-6">
+  <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row items-center justify-between gap-4">
+    <div class="text-xl font-bold text-white">
+     🎬 CineScope
     </div>
-  </footer>
+
+    <p class="text-sm md:text-base font-extrabold">
+      © 2025 CineScope. Tüm hakları saklıdır.
+    </p>
+
+    <div class="flex gap-4">
+      <a href="https://www.linkedin.com/in/mehmet-can-%C3%A7al%C4%B1%C5%9Fkan-165111246/" 
+       target="_blank" 
+      rel="noopener noreferrer" 
+      class="hover:text-white transition-colors">
+  <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="currentColor" viewBox="0 0 24 24">
+    <path d="M20.452 20.452h-3.554v-5.569c0-1.328-.026-3.037-1.852-3.037-1.853 0-2.136 1.446-2.136 2.939v5.667H9.36V9h3.414v1.561h.049c.476-.898 1.637-1.846 3.368-1.846 3.598 0 4.265 2.368 4.265 5.448v6.289zM5.337 7.433c-1.145 0-2.072-.928-2.072-2.072 0-1.146.927-2.073 2.072-2.073 1.146 0 2.073.927 2.073 2.073 0 1.144-.927 2.072-2.073 2.072zm1.777 13.019H3.56V9h3.554v11.452z"/>
+  </svg>
+</a>
+
+     <a href="https://github.com/MehmetCanCaliskan1" 
+        target="_blank" 
+        rel="noopener noreferrer" 
+     class="hover:text-white transition-colors ml-5">
+  <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="currentColor" viewBox="0 0 24 24">
+    <path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.438 9.8 8.205 11.385.6.11.82-.26.82-.577v-2.234c-3.338.726-4.033-1.61-4.033-1.61-.546-1.385-1.334-1.753-1.334-1.753-1.09-.745.082-.73.082-.73 1.205.084 1.84 1.237 1.84 1.237 1.07 1.835 2.807 1.305 3.492.997.108-.775.418-1.305.762-1.605-2.665-.304-5.467-1.332-5.467-5.932 0-1.31.468-2.38 1.236-3.22-.124-.303-.536-1.523.117-3.176 0 0 1.008-.322 3.3 1.23a11.52 11.52 0 013-.404c1.02.005 2.046.137 3 .404 2.29-1.552 3.296-1.23 3.296-1.23.655 1.653.243 2.873.12 3.176.77.84 1.236 1.91 1.236 3.22 0 4.61-2.807 5.625-5.48 5.922.43.37.814 1.096.814 2.21v3.28c0 .32.218.694.825.576C20.565 21.796 24 17.296 24 12c0-6.63-5.37-12-12-12z"/>
+  </svg>
+</a>
+    </div>
+  </div>
+</footer>
 
 </template>

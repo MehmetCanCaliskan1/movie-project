@@ -67,14 +67,46 @@ const applySort=(sort)=>{
   }
 };
 const applyFilter = (filters) => {
-  const filtered = originaltvshows.value.filter(tvshows => {
-    if (filters.action && tvshows.genre_ids.includes(28)) return true;
-    if (filters.drama && tvshows.genre_ids.includes(18)) return true;
-    if (filters.comedy && tvshows.genre_ids.includes(35)) return true;
-    return !filters.action && !filters.drama && !filters.comedy;
+  const filtered = originaltvshows.value.filter(tv => {
+    if (filters['action-adventure'] && tv.genre_ids.includes(10759)) return true;
+    if (filters.animation && tv.genre_ids.includes(16)) return true;
+    if (filters.comedy && tv.genre_ids.includes(35)) return true;
+    if (filters.crime && tv.genre_ids.includes(80)) return true;
+    if (filters.documentary && tv.genre_ids.includes(99)) return true;
+    if (filters.drama && tv.genre_ids.includes(18)) return true;
+    if (filters.family && tv.genre_ids.includes(10751)) return true;
+    if (filters.kids && tv.genre_ids.includes(10762)) return true;
+    if (filters.mystery && tv.genre_ids.includes(9648)) return true;
+    if (filters.news && tv.genre_ids.includes(10763)) return true;
+    if (filters.reality && tv.genre_ids.includes(10764)) return true;
+    if (filters['sci-fantasy'] && tv.genre_ids.includes(10765)) return true;
+    if (filters.soap && tv.genre_ids.includes(10766)) return true;
+    if (filters.talk && tv.genre_ids.includes(10767)) return true;
+    if (filters['war-politics'] && tv.genre_ids.includes(10768)) return true;
+    if (filters.western && tv.genre_ids.includes(37)) return true;
+
+    // Eğer hiçbir filtre seçili değilse tümünü göster
+    return !filters['action-adventure'] &&
+           !filters.animation &&
+           !filters.comedy &&
+           !filters.crime &&
+           !filters.documentary &&
+           !filters.drama &&
+           !filters.family &&
+           !filters.kids &&
+           !filters.mystery &&
+           !filters.news &&
+           !filters.reality &&
+           !filters['sci-fantasy'] &&
+           !filters.soap &&
+           !filters.talk &&
+           !filters['war-politics'] &&
+           !filters.western;
   });
+
   tvshows.value = [...filtered];
 };
+
 </script>
 
 <template>

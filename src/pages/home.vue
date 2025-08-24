@@ -1,8 +1,9 @@
 <template>
    <SearchBar1 />
-
+  
+   
   <div class="bg-gray-900 text-white font-extrabold p-8 text-center mt-1 mb-8"
-       style="background-image: url(''); background-size: cover; background-position: center;">
+       style="background-image: url('arka.jpg'); background-size: cover; background-position: center;">
     <h1 class="text-7xl font-extrabold mb-5 mt-10">Hoş Geldiniz!</h1>
     <p class="mb-12 text-lg">
       CineScope, en yeni ve popüler filmleri keşfetmenizi sağlar. Şimdi Keşfedin

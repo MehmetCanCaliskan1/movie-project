@@ -2,7 +2,7 @@
   <div class="p-4">
     <h1 class="text-2xl font-extrabold mb-4">Popüler Oyuncular</h1>
     
-    <div class="grid grid-cols-2 md:grid-cols-6 gap-4">
+    <div class="grid grid-cols-2 md:grid-cols-5 gap-4">
       <div v-for="person in people" :key="person.id" class="text-center">
         <img
           v-if="person.profile_path"
@@ -18,7 +18,7 @@
       </div>
     </div>
 
-     <div class="flex justify-center  gap-2 -ml-3 font-extrabold">Sayfa</div>
+     <div class="flex justify-center  gap-2 -ml-3 mt-8 font-extrabold">Sayfa</div>
     <div class="flex justify-center mt-4 gap-2">
       <button @click="prevPage" :disabled="page === 1" 
   class="px-4 py-2 bg-gray-300 rounded cursor-pointer hover:bg-blue-400 transition-colors duration-300"

@@ -83,10 +83,6 @@ watch(
 </template>
 
 
-
-
-
-
 <!-- <script setup >
 import { ref, watch, computed } from 'vue';
 import { useRoute } from 'vue-router';

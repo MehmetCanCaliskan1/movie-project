@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref, onMounted,watch } from 'vue';
 import { useRoute } from 'vue-router';
 import axios from 'axios';
 import { useFavoritesStore } from '../favori/favourite.js';
@@ -20,8 +20,12 @@ function toggleFav() {
 
 const API_KEY = import.meta.env.VITE_TMDB_API_KEY;
 const BASE_URL = 'https://api.themoviedb.org/3';
-onMounted(async () => {
-  const type = route.params.type; // 'movie' veya 'tv'
+
+async function loadData() {
+  const type = route.params.type;
+  loading.value = true;
+  error.value = null;
+
   try {
     const res = await axios.get(`${BASE_URL}/${type}/${route.params.id}`, {
       params: {
@@ -30,6 +34,7 @@ onMounted(async () => {
       }
     });
     item.value = res.data;
+
     const creditsRes = await axios.get(`${BASE_URL}/${type}/${route.params.id}/credits`, {
       params: { api_key: API_KEY, language: 'tr-TR' }
     });
@@ -40,8 +45,30 @@ onMounted(async () => {
   } finally {
     loading.value = false;
   }
+}
+
+onMounted(() => {
+  loadData();
 });
+
+watch(() => route.params.id, () => {
+  loadData();
+});
+
+watch(
+  () => [route.params.type, route.params.id],
+  () => {
+    loadData();
+  }
+);
+
+
+const formatDate = (date) => {
+  if (!date) return '-';
+  return new Date(date).toLocaleDateString(); 
+}
 </script>
+
 
 <template>
  <SearchBar1 class="mb-1"/>
@@ -87,7 +114,7 @@ onMounted(async () => {
             >
               ⭐ {{ item.vote_average.toFixed(1) }}
             </span>
-            <span>📅 {{ item.release_date || item.first_air_date || '-' }}</span>
+             <span>{{ formatDate(item.release_date || item.first_air_date) }} (TR)</span>
             <span>
               ⏱
               {{ item.runtime || (item.episode_run_time?.[0] ?? '-') }} dk

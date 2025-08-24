@@ -82,7 +82,7 @@
 <script setup>
 import { MagnifyingGlassIcon } from "@heroicons/vue/24/solid";
 import { ref, watch, onMounted } from 'vue';
-import popular, { upcoming, topRated } from '../services/movieService.js';
+import {topRated,trendingToday,trendingWeek } from '../services/movieService.js';
 import { topRatedTVShows } from '../services/diziService.js';
 import SearchBar2 from '../components/SearchBar2.vue';
 import MovieCard from '../components/MovieCard.vue';
@@ -124,8 +124,8 @@ const mainMovies = ref([]);
 const popularMovies = ref([]);
 const popularTVShows = ref([]);
 const loadMainMovies = async () => {
-  if(mainSelected.value === 'today') mainMovies.value = await popular();
-  else if(mainSelected.value === 'week') mainMovies.value = await upcoming();
+  if(mainSelected.value === 'today') mainMovies.value = await trendingToday();
+  else if(mainSelected.value === 'week') mainMovies.value = await trendingWeek();
 };
 
 

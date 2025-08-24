@@ -3,7 +3,7 @@
 
 <template>
   <div>
-    <nav class="bg-gray-800 text-white p-4 flex gap-4 pl-8">
+    <nav class="bg-gray-800 text-white p-4 flex gap-4 pl-8 flex flex-wrap">
       <router-link to="/" class="text-2xl font-extrabold bg-gradient-to-r from-yellow-400 via-green-500 to-red-600 bg-clip-text text-transparent drop-shadow-lg tracking-wide hover:scale-100 transition-transform duration-300">
         🎬 CineScope
       </router-link>

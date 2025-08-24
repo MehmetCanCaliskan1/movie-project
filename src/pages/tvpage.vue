@@ -84,7 +84,7 @@ const applyFilter = (filters) => {
       @sort-changed="applySort"
       @filter-changed="applyFilter"
     />
-    <div class="flex-1 p-6 grid grid-cols-5 gap-6">
+<div class="flex-1 p-6 grid grid-cols-3 md:grid-cols-5 gap-6">
       <div v-if="loading" class="text-center col-span-full">Yükleniyor...</div>
       <MovieCard v-for="tvshow in tvshows || []" :key="tvshow.id" :tvshows="tvshow" />
     </div>

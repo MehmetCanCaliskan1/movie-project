@@ -1,5 +1,5 @@
 <template>
-   <SearchBar1 />
+   <SearchBar1 class="sticky top-0" />
   
    
   <div class="bg-gray-900 text-white font-extrabold p-8 text-center mt-1 mb-8"
@@ -81,7 +81,6 @@
 </template>
 
 <script setup>
-import { MagnifyingGlassIcon } from "@heroicons/vue/24/solid";
 import { ref, watch, onMounted } from 'vue';
 import {topRated,trendingToday,trendingWeek } from '../services/movieService.js';
 import { topRatedTVShows } from '../services/diziService.js';

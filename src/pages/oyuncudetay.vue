@@ -2,6 +2,7 @@
 import { ref, onMounted } from 'vue';
 import { useRoute } from 'vue-router';
 import MovieCard from '../components/MovieCard.vue';
+import SearchBar1 from '../components/SearchBar1.vue';
 const route = useRoute();
 const playerId = route.params.id;
 
@@ -42,6 +43,7 @@ onMounted(() => fetchPlayer());
 </script>
 
 <template>
+  <SearchBar1/>
   <div v-if="loading" class="text-slate-600">Yükleniyor...</div>
   <div v-else-if="error" class="text-red-600">{{ error }}</div>
   <div v-else class="flex items-start gap-6">

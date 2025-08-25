@@ -114,7 +114,7 @@ const formatDate = (date) => {
             >
               ⭐ {{ item.vote_average.toFixed(1) }}
             </span>
-             <span>{{ formatDate(item.release_date || item.first_air_date) }} (TR)</span>
+             <span>{{ formatDate(item.release_date || item.first_air_date) }}</span>
             <span>
               ⏱
               {{ item.runtime || (item.episode_run_time?.[0] ?? '-') }} dk

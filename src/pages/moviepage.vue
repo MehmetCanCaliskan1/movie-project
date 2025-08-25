@@ -11,11 +11,11 @@ const props = defineProps({
 const loading = ref(true);
 const originalMovies = ref([]);
 const movies = ref([]);
-
+const page=ref(1);
 const loadMovies = async () => {
   loading.value = true;
   try {
-    originalMovies.value = await props.movieService(/* page.value */);
+    originalMovies.value = await props.movieService( page.value );
     movies.value = [...originalMovies.value];
   } catch (err) {
     console.error('Film verisi alınamadı', err);
@@ -96,7 +96,7 @@ return !filters.action &&
   movies.value = [...filtered];
 };
 
-/* const page = ref(1);
+/* 
 
 const loadMore = async () => {
   page.value++;

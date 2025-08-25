@@ -63,7 +63,7 @@ const handleSelect = (path) => {
 </script>
 
 <template>
-  <div ref="searchRef" class="ml-4 -mt-5 relative w-full sticky top-0">
+  <div ref="searchRef" class="ml-4 -mt-5 relative w-full ">
     <div class="flex items-center bg-white rounded px-3 py-2">
       <MagnifyingGlassIcon class="w-7 h-7 text-black-500 mr-2 font-extrabold" />
       <input 

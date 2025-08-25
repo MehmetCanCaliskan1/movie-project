@@ -25,11 +25,11 @@ export function nowPlaying(page=1) {
 }
 
 export function upcoming(page=1) {
-  return fetchMovies('/movie/top_rated', '', page);
+  return fetchMovies('/movie/upcoming', '', page);
 }
 
 export function topRated(page=1) {
-  return fetchMovies('/movie/top_rated');
+  return fetchMovies('/movie/top_rated','',page);
 }
 
 // 🔹 Yeni fonksiyon: arama

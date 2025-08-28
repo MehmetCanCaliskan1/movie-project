@@ -46,6 +46,6 @@
 const handleSubmit = (e) => {
   e.preventDefault();
   alert('Mesajınız gönderilmiştir!');
-  window.location.reload();
+  window.location.reload()
 };
 </script>

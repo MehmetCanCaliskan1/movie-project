@@ -7,7 +7,6 @@ import detay  from '../pages/detay.vue';
 import Arama from '../pages/arama.vue';
 import oyuncudetay from '../pages/oyuncudetay.vue';
 import oyuncular from '../pages/oyuncular.vue'
-
 import moviepage from '../pages/moviepage.vue';
 import popular,{ nowPlaying,upcoming,topRated }  from '../services/movieService.js'; 
 import popularTVShows, { airingTodayTVShows,onTheAirTVShows,topRatedTVShows } from '../services/diziService.js';
@@ -60,6 +59,7 @@ const routes = [
       return { movieService: service, title };
     }
   },
+
   {
     path: '/tv/:type',
     name: 'TvShows',

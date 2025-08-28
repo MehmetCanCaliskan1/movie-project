@@ -62,6 +62,7 @@
     <span>▼</span>
   </button>
 
+<!-- FİLMLER İÇİN LİSTEM -->
   <ul v-show="showFilter" v-if="ismoviepage" class="mt-2 ml-2 bg-gray-700 p-2 rounded shadow-lg z-10">
     <li>TÜR SEÇİN</li>
   <li>
@@ -125,7 +126,6 @@
    
   </li>
 
-
   <li>
     <input type="checkbox" id="filter-tvMovie" v-model="filters.tvMovie" @change="emitFilters" />
     <label for="filter-tvMovie">TV Filmi</label>
@@ -144,6 +144,7 @@
 
   </ul>
 </li>
+
 
  <!-- DİZİLER İÇİN LİSTEM -->
 
@@ -232,7 +233,7 @@ const props = defineProps({
   }
 });
 const filters = ref({
-  // Film Türleri (TMDb)
+  // Film Türleri 
   action: false,        
   adventure: false,     
   animation: false,     
@@ -254,14 +255,14 @@ const filters = ref({
   western: false,      
 
   // Dizi Türleri 
-  'action-adventure': false, // 10759
-  kids: false,               // 10762
-  news: false,               // 10763
-  reality: false,            // 10764
-  'sci-fantasy': false,      // 10765
-  soap: false,               // 10766
-  talk: false,               // 10767
-  'war-politics': false,     // 10768
+  'action-adventure': false, 
+  kids: false,               
+  news: false,              
+  reality: false,           
+  'sci-fantasy': false,     
+  soap: false,               
+  talk: false,              
+  'war-politics': false,    
 });
 
 

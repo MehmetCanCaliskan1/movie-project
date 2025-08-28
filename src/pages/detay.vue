@@ -78,7 +78,9 @@ const formatDate = (date) => {
     <div v-else-if="error" class="text-red-500">{{ error }}</div>
 
     <div v-else>
-    <!--   Arka plan
+      <!-- arkaplan yazıları okutmadığı için kaldırdım -->
+
+    <!--   Arkaplan
       div
         class="w-full sm:h-72 md:h-96 bg-cover bg-center rounded-lg shadow-lg relative"
         :style="{
@@ -90,8 +92,8 @@ const formatDate = (date) => {
        
 
       <!-- İçerik -->
+
       <div class="mt-6 flex flex-col md:flex-row gap-6">
-        <!-- Poster -->
         <img
           :src="item.poster_path
             ? `https://image.tmdb.org/t/p/w500${item.poster_path}`
@@ -100,13 +102,11 @@ const formatDate = (date) => {
           class="w-64 rounded-lg shadow-lg"
         />
 
-        <!-- Detaylar -->
         <div class="flex-1">
           <h1 class="text-4xl font-extrabold">{{ item.title || item.name }}</h1>
           <p class="italic text-gray-400 mb-2">{{ item.tagline || '' }}</p>
           <p class="mb-4">{{ item.overview }}</p>
 
-          <!-- Rating, Release, Runtime -->
           <div class="flex gap-4 mb-4 flex-wrap">
             <span
               class="bg-yellow-500 text-black px-2 py-1 rounded"
@@ -121,8 +121,7 @@ const formatDate = (date) => {
             </span>
            <span v-if="item.adult">18+</span>
           </div>
-          <!-- </div> -->
-          <!-- Türler -->
+
           <div class="flex gap-2 flex-wrap">
             <span
               v-for="genre in item.genres || []"

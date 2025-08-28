@@ -2,7 +2,7 @@ import { defineStore } from "pinia";
 import { ref } from "vue";
 
 export const useFavoritesStore = defineStore("favorites", () => {
-  const favorites = ref([]); // { id, type, title, poster }
+  const favorites = ref([]); //  id, type, title, poster 
 
   function toggleFavorite(item, type) {
     const exists = favorites.value.find(f => f.id === item.id && f.type === type);

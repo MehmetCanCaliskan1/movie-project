@@ -10,7 +10,6 @@ const movieresults = ref([]);
 const tvresults = ref([]);
 const loading = ref(false);
 const showDropdown = ref(false);
-
 const router = useRouter();
 
 watch(query, async (newVal) => {
@@ -20,10 +19,10 @@ watch(query, async (newVal) => {
     showDropdown.value = false;
     return;
   }
-
+  else {
   loading.value = true;
   showDropdown.value = true;
-
+  }
   try {
     const movies = await searchMovies(newVal);
     const tvs = await searchTVShows(newVal);
@@ -69,7 +68,7 @@ const handleSelect = (path) => {
       <input 
         type="text" 
         v-model="query"
-        class="border-none outline-none focus:ring-0 flex-1 text-black" 
+        class="border-none outline-none focus:ring-0 flex-1 text-black italic" 
         placeholder="Film veya Dizi Ara..."
         id="search"
       />
@@ -89,7 +88,7 @@ const handleSelect = (path) => {
         >
           <span class="text-gray-500">🎞️</span>
           <span>{{ movie.title }}</span>
-          <span class="ml-auto text-gray-400 text-sm">Filmlerde</span>
+          <span class="ml-auto text-gray-400 text-xl italic">Filmlerde</span>
         </li>
 
         <li
@@ -100,11 +99,11 @@ const handleSelect = (path) => {
         >
           <span class="text-gray-500">🖥️</span>
           <span>{{ tv.name }}</span>
-          <span class="ml-auto text-gray-400 text-sm">Dizilerde</span>
+          <span class="ml-auto text-gray-400 text-xl italic">Dizilerde</span>
         </li>
 
-        <li v-if="loading" class="p-2 text-center text-gray-500">Yükleniyor...</li>
-        <li v-else-if="!movieresults.length && !tvresults.length && !loading" class="p-2 text-center text-gray-500">Sonuç Bulunamadı</li>
+        <li v-if="loading" class="p-2 text-center text-gray-500 text-xl">Yükleniyor,Lütfen Bekleyiniz...</li>
+        <li v-else-if="!movieresults.length && !tvresults.length && !loading" class="p-2 text-center text-xl text-gray-500">Sonuç Bulunamadı</li>
       </ul>
     </div>
   </div>

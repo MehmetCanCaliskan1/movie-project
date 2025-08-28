@@ -20,17 +20,15 @@ function toggleFavourite() {
  */
 const posterUrl = computed(() => {
   const posterPath = props.movie?.poster_path || props.tvshows?.poster_path;
-  return posterPath
-    ? `https://image.tmdb.org/t/p/w500${posterPath}`
-    : 'https://via.placeholder.com/500x750?text=No+Image';
+  return posterPath ? `https://image.tmdb.org/t/p/w500${posterPath}` : 'https://via.placeholder.com/500x750?text=No+Image';
 });
 
 const title = computed(() => props.movie?.title || props.tvshows?.name);
 const rating = computed(() => props.movie?.vote_average || props.tvshows?.vote_average);
-
-
-
  </script>
+
+
+
 
 <template>
   <div class="bg-white rounded-lg overflow-hidden shadow-lg hover:scale-105 transition-transform cursor-pointer"
@@ -40,7 +38,7 @@ const rating = computed(() => props.movie?.vote_average || props.tvshows?.vote_a
     <div class="p-4">
       <h2 class="text-md font-extrabold text-black mb-2.5 text-center ">{{ title }}</h2>
       <p class="text-gray-600 text-center font-extrabold">Rating: {{ rating?.toFixed(1) ?? 'N/A'}}</p>
-<!--        <p class="text-gray-400 text-center">{{ release_date }}</p>
+<!--  <p class="text-gray-400 text-center">{{ release_date }}</p>
  -->   </div>
   
   </div>

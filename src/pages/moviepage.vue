@@ -96,9 +96,9 @@ return !filters.action &&
   movies.value = [...filtered];
 };
 
-/* 
 
-const loadMore = async () => {
+
+/* const loadMore = async () => {
   page.value++;
   loading.value = true;
   try {
@@ -110,8 +110,8 @@ const loadMore = async () => {
     loading.value = false;
   }
 };
+ 
  */
-
 
 </script>
 
@@ -129,11 +129,10 @@ const loadMore = async () => {
     
   </div>
   <div class="col-span-full flex justify-center mt-4">
- <!--  <button 
+  <!-- <button 
   @click="loadMore"
   class="px-4 py-2 bg-gray-300 rounded cursor-pointer ml-[60px] hover:bg-green-400 transition-all duration-300"
   > Daha Fazla Yükle
-</button> -->
+</button>  -->
 </div>
-
 </template>

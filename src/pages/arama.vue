@@ -19,7 +19,7 @@ const fetchMovies = async (query) => {
     movies.value = await searchMovies(query);
     
   } catch (err) {
-    movierror.value = 'Arama sırasında hata oluştu.';
+    movierror.value = 'Film araması sırasında hata oluştu.';
     movies.value = [];
     console.error(err);
   } finally {
@@ -34,7 +34,7 @@ const fetchTVShows = async (query) => {
     tvshows.value = await searchTVShows(query);
     
   } catch (err) {
-    tverror.value = 'Arama sırasında hata oluştu.';
+    tverror.value = 'Dizi araması sırasında hata oluştu.';
     tvshows.value = [];
     console.error(err);
   } finally {
@@ -65,13 +65,13 @@ watch(
 
 <template>
   <div class="p-4">
-    <h2 class="text-xl font-bold mb-4">Arama Sonuçları:{{ route.query.q || '' }}</h2>
+    <h2 class="text-3xl font-bold mb-4">Arama Sonuçları:{{ route.query.q || '' }}</h2>
 
     <div v-if="movieloading||tvloading" class="text-gray-500">Yükleniyor...</div>
-    <div v-else-if="movierror" class="text-red-500">{{ movierror }}</div>
-    <div v-else-if="tverror" class="text-red-500">{{ tverror }}</div>
+    <div v-else-if="movierror" class="text-red-500 text-xl">{{ movierror }}</div>
+    <div v-else-if="tverror" class="text-red-500 text-xl">{{ tverror }}</div>
     <div v-else>
-      <div v-if="movies.length === 0" class="text-gray-500">Hiç sonuç bulunamadı.</div>
+      <div v-if="movies.length === 0" class="text-red-500 text-3xl">Hiç sonuç bulunamadı.</div>
       <div class="grid grid-cols-2 md:grid-cols-10 gap-8">
         
         <MovieCard v-for="tvshow in tvshows ||[]" :key="tvshow.id" :tvshows="tvshow" />

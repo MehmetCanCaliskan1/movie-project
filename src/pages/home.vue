@@ -78,6 +78,26 @@
 
   </div>
 
+  <!-- <div class="ml-5 mb-4 ">
+    <span class="font-bold text-3xl text-black">İzlemesi Ücretsiz</span>
+    <div class="inline-flex border border-blue-800 rounded-full overflow-hidden text-lg font-bold text-blue-900 ml-4">
+      <button
+      class="cursor-pointer"
+        @click="popularSelected = 'Filmler'"
+        :class="buttonClass(popularSelected, 'Filmler') ,[ popularSelected === 'Filmler' ? 'bg-blue-900 text-blue-300' : 'bg-white text-blue-900' ]"
+      >Filmler</button>
+      <button
+        @click="popularSelected = 'Diziler'"
+        :class="buttonClass(popularSelected, 'Diziler'), [ popularSelected === 'Diziler' ? 'bg-blue-900 text-blue-300' : 'bg-white text-blue-900' ]"
+              class="cursor-pointer"
+
+      >Diziler</button>
+    </div>
+  </div> -->
+
+
+
+
 </template>
 
 <script setup>

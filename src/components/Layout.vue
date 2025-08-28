@@ -12,24 +12,25 @@ const Logoutfonk = () => {
 
 <template>
   <div>
-   <nav class="bg-gray-800 text-white p-4 flex flex-wrap items-center">
-  <!-- Sol menü -->
-  <div class="flex items-center gap-8">
-    <router-link to="/" class="text-2xl font-extrabold bg-gradient-to-r from-yellow-400 via-green-500 to-red-600 bg-clip-text text-transparent drop-shadow-lg tracking-wide hover:scale-100 transition-transform duration-300">
-      🎬 CineScope
-    </router-link>
+  <nav class="bg-gray-800 text-white p-4 flex flex-wrap items-center">
 
-    <div class="relative group cursor-pointer">  
+    <div class="flex items-center gap-8">
+<router-link to="/" 
+class="text-2xl font-extrabold bg-gradient-to-r from-yellow-400 via-green-500 to-red-600 bg-clip-text text-transparent drop-shadow-lg tracking-wide hover:scale-100 transition-transform duration-300">
+🎬 CineScope
+</router-link>
+
+  <div class="relative group cursor-pointer">  
       Filmler
-      <div class="absolute left-0 mt-2 w-40 bg-white text-gray-800 rounded shadow-lg opacity-0 group-hover:opacity-100  group-hover:pointer-events-auto transition-opacity duration-200 z-10">
-        <router-link to="/movies/popular" class="block px-4 py-2 hover:bg-gray-100">Popüler</router-link>
-        <router-link to="/movies/now_playing" class="block px-4 py-2 hover:bg-gray-100">Gösterimde</router-link>
-        <router-link to="/movies/upcoming" class="block px-4 py-2 hover:bg-gray-100">Yakında</router-link>
-        <router-link to="/movies/top_rated" class="block px-4 py-2 hover:bg-gray-100">En Çok Oy Alan</router-link>
-      </div>
+    <div class="absolute left-0 mt-2 w-40 bg-white text-gray-800 rounded shadow-lg opacity-0 group-hover:opacity-100  group-hover:pointer-events-auto transition-opacity duration-200 z-10">
+      <router-link to="/movies/popular" class="block px-4 py-2 hover:bg-yellow-100">Popüler</router-link>
+      <router-link to="/movies/now_playing" class="block px-4 py-2 hover:bg-yellow-100">Gösterimde</router-link>
+      <router-link to="/movies/upcoming" class="block px-4 py-2 hover:bg-yellow-100">Yakında</router-link>
+      <router-link to="/movies/top_rated" class="block px-4 py-2 hover:bg-yellow-100">En Çok Oy Alan</router-link>
     </div>
+  </div>
 
-    <div class="relative group cursor-pointer">
+    <div class="relative group cursor-pointer ">
       Diziler
       <div class="absolute left-0 mt-2 w-40 bg-white text-gray-800 rounded shadow-lg opacity-0 group-hover:opacity-100  group-hover:pointer-events-auto transition-opacity duration-200 z-10">
         <router-link to="/tv/popular" class="block px-4 py-2 hover:bg-gray-100">Popüler</router-link>
@@ -44,31 +45,28 @@ const Logoutfonk = () => {
     <router-link to="/iletisim" class="transition-transform duration-200 hover:scale-120">İletişim</router-link>
   </div>
 
-  <!-- Sağ menü (profil / login / arama) -->
+  <!-- Sağ Navım -->
   <div class="flex items-center gap-16 ml-128">
     <div v-if="!auth.isLoggedIn">
-      <router-link to="/login" class="transition-transform duration-200 hover:scale-120">Giriş</router-link>
+      <router-link to="/login" class="transition-transform duration-200 hover:scale-120 cursor-pointer">Giriş Yap</router-link>
     </div>
     <div v-else class="flex items-center gap-8">
-      <button class="transition-transform duration-200 hover:scale-120 cursor-pointer">{{ auth.userName }}</button>
+      <span class="transition-transform duration-200 hover:scale-120 cursor-pointer">{{ auth.userName }}</span>
       <button @click="Logoutfonk" class="transition-transform duration-200 hover:scale-120 cursor-pointer">Çıkış Yap</button>
     </div>
-
+<!-- 
     <button @click="document.getElementById('search').focus()" class="text-gray-300 hover:text-white cursor-pointer">
       <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
         <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2" fill="none"/>
         <line x1="16.5" y1="16.5" x2="21" y2="21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
       </svg>
-    </button>
+    </button> -->
   </div>
 </nav>
-
 
     <main class="p-6">
       <router-view />
     </main>
-
-  
 
   </div>
   <footer class="bg-gray-900 text-gray-300 py-6">
@@ -76,7 +74,7 @@ const Logoutfonk = () => {
     <div class="text-xl font-bold text-white">
      🎬 CineScope
     </div>
-
+    
     <p class="text-sm md:text-base font-extrabold">
       © 2025 CineScope. Tüm hakları saklıdır.
     </p>
@@ -89,7 +87,7 @@ const Logoutfonk = () => {
   <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="currentColor" viewBox="0 0 24 24">
     <path d="M20.452 20.452h-3.554v-5.569c0-1.328-.026-3.037-1.852-3.037-1.853 0-2.136 1.446-2.136 2.939v5.667H9.36V9h3.414v1.561h.049c.476-.898 1.637-1.846 3.368-1.846 3.598 0 4.265 2.368 4.265 5.448v6.289zM5.337 7.433c-1.145 0-2.072-.928-2.072-2.072 0-1.146.927-2.073 2.072-2.073 1.146 0 2.073.927 2.073 2.073 0 1.144-.927 2.072-2.073 2.072zm1.777 13.019H3.56V9h3.554v11.452z"/>
   </svg>
-</a>
+       </a>
 
      <a href="https://github.com/MehmetCanCaliskan1" 
         target="_blank" 

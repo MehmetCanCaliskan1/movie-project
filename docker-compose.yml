@@ -1,0 +1,10 @@
+
+services:
+  movie-project:
+    build: .
+    ports:
+      - "8080:80"
+    volumes:
+      - .:/app
+    env_file:
+      - .env

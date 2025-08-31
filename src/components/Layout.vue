@@ -1,6 +1,7 @@
 <script setup>
 import { useAuthStore } from "/stores/auth.js";
 import { useRouter } from "vue-router";
+import {ref} from 'vue';
 const auth = useAuthStore();
 const router=useRouter();
 
@@ -8,61 +9,128 @@ const Logoutfonk = () => {
   auth.logout();
   router.push("/"); 
 };
+const MenuOpen = ref(false);
+const openMovies = ref(false);
+const openSeries = ref(false);
 </script>
 
 <template>
   <div>
-  <nav class="bg-gray-800 text-white p-4 flex flex-wrap items-center">
+ <nav class="bg-gray-800 text-white p-4 flex flex-wrap items-center relative z-50">
+    <router-link
+      to="/"
+      class="text-2xl font-extrabold mr-5 bg-gradient-to-r from-yellow-400 via-green-500 to-red-600 bg-clip-text text-transparent drop-shadow-lg tracking-wide hover:scale-105 transition-transform duration-300"
+    >
+      🎬 CineScope
+    </router-link>
 
-    <div class="flex items-center gap-8">
-<router-link to="/" 
-class="text-2xl font-extrabold bg-gradient-to-r from-yellow-400 via-green-500 to-red-600 bg-clip-text text-transparent drop-shadow-lg tracking-wide hover:scale-100 transition-transform duration-300">
-🎬 CineScope
-</router-link>
+    <div class="hidden md:flex items-center gap-8">
+      <div
+        class="relative group cursor-pointer"
+    
+      >
+        <span @mouseover="openMovies = true">Filmler</span>
+        <div
+          v-show="openMovies"
+          @mouseleave="openMovies = false"
 
-  <div class="relative group cursor-pointer">  
-      Filmler
-    <div class="absolute left-0 mt-2 w-40 bg-white text-gray-800 rounded shadow-lg opacity-0 group-hover:opacity-100  group-hover:pointer-events-auto transition-opacity duration-200 z-10">
-      <router-link to="/movies/popular" class="block px-4 py-2 hover:bg-yellow-100">Popüler</router-link>
-      <router-link to="/movies/now_playing" class="block px-4 py-2 hover:bg-yellow-100">Gösterimde</router-link>
-      <router-link to="/movies/upcoming" class="block px-4 py-2 hover:bg-yellow-100">Yakında</router-link>
-      <router-link to="/movies/top_rated" class="block px-4 py-2 hover:bg-yellow-100">En Çok Oy Alan</router-link>
-    </div>
-  </div>
-
-    <div class="relative group cursor-pointer ">
-      Diziler
-      <div class="absolute left-0 mt-2 w-40 bg-white text-gray-800 rounded shadow-lg opacity-0 group-hover:opacity-100  group-hover:pointer-events-auto transition-opacity duration-200 z-10">
-        <router-link to="/tv/popular" class="block px-4 py-2 hover:bg-gray-100">Popüler</router-link>
-        <router-link to="/tv/on_the_air" class="block px-4 py-2 hover:bg-gray-100">Günün Programı</router-link>
-        <router-link to="/tv/airing_today" class="block px-4 py-2 hover:bg-gray-100">Televizyonda</router-link>
-        <router-link to="/tv/top_rated" class="block px-4 py-2 hover:bg-gray-100">En Fazla Oy Alanlar</router-link>
+          class="absolute left-0 mt-2 w-40 bg-white text-gray-800 rounded shadow-lg transition duration-200 z-10"
+        >
+          <router-link to="/movies/popular" class="block px-4 py-2 hover:bg-yellow-100">Popüler</router-link>
+          <router-link to="/movies/now_playing" class="block px-4 py-2 hover:bg-yellow-100">Gösterimde</router-link>
+          <router-link to="/movies/upcoming" class="block px-4 py-2 hover:bg-yellow-100">Yakında</router-link>
+          <router-link to="/movies/top_rated" class="block px-4 py-2 hover:bg-yellow-100">En Çok Oy Alan</router-link>
+        </div>
       </div>
+
+      <div
+        class="relative group cursor-pointer"
+      >
+        <span @mouseover="openSeries = true">Diziler</span>
+        <div
+          v-show="openSeries"
+          @mouseleave="openSeries = false"
+
+          class="absolute left-0 mt-2 w-40 bg-white text-gray-800 rounded shadow-lg transition duration-200 z-10"
+        >
+          <router-link to="/tv/popular" class="block px-4 py-2 hover:bg-yellow-100">Popüler</router-link>
+          <router-link to="/tv/on_the_air" class="block px-4 py-2 hover:bg-yellow-100">Günün Programı</router-link>
+          <router-link to="/tv/airing_today" class="block px-4 py-2 hover:bg-yellow-100">Televizyonda</router-link>
+          <router-link to="/tv/top_rated" class="block px-4 py-2 hover:bg-yellow-100">En Fazla Oy Alanlar</router-link>
+        </div>
+      </div>
+
+      <router-link to="/oyuncular" class="transition-transform duration-200 hover:scale-110">Oyuncular</router-link>
+      <router-link to="/hakkinda" class="transition-transform duration-200 hover:scale-110">Hakkımızda</router-link>
+      <router-link to="/iletisim" class="transition-transform duration-200 hover:scale-110">İletişim</router-link>
     </div>
 
-    <router-link to="/oyuncular" class="transition-transform duration-200 hover:scale-120">Oyuncular</router-link>
-    <router-link to="/hakkinda" class="transition-transform duration-200 hover:scale-120">Hakkımızda</router-link>
-    <router-link to="/iletisim" class="transition-transform duration-200 hover:scale-120">İletişim</router-link>
+    <!-- Sağ Navım -->
+    <div class="flex items-center gap-8 ml-auto">
+      <div v-if="!auth.isLoggedIn">
+        <router-link to="/login" class="transition-transform duration-200 hover:scale-110 cursor-pointer">
+          Giriş Yap
+        </router-link>
+      </div>
+      <div v-else class="flex items-center gap-8">
+        <span class="transition-transform duration-200 hover:scale-110 cursor-pointer">{{ auth.userName }}</span>
+        <button @click="Logoutfonk" class="transition-transform duration-200 hover:scale-110 cursor-pointer">
+          Çıkış Yap
+        </button>
+      </div>
+
+      <button
+        @click="MenuOpen = !MenuOpen"
+        class="md:hidden text-white focus:outline-none text-2xl cursor-pointer"
+      >
+        ☰
+      </button>
+    </div>
+
+    <div
+      v-if="MenuOpen"
+      class="fixed inset bg-opacity-50 z-40 md:hidden"
+      @click="MenuOpen = false"
+    ></div>
+
+    <div
+  v-if="MenuOpen"
+  class="fixed top-0 left-0 h-full w-2/3 bg-gray-800 text-white flex flex-col gap-4 p-6 z-50 md:hidden"
+>
+  <router-link to="/" @click="MenuOpen = false">Anasayfa</router-link>
+
+  <div>
+    <div @click="openMovies = !openMovies" class="cursor-pointer flex justify-between items-center">
+      Filmler
+      <span>{{ openMovies ? '▲' : '▼' }}</span>
+    </div>
+    <div v-if="openMovies" class="flex flex-col ml-4 mt-2 gap-2">
+      <router-link to="/movies/popular" @click="MenuOpen = false">Popüler</router-link>
+      <router-link to="/movies/now_playing" @click="MenuOpen = false">Gösterimde</router-link>
+      <router-link to="/movies/upcoming" @click="MenuOpen = false">Yakında</router-link>
+      <router-link to="/movies/top_rated" @click="MenuOpen = false">En Çok Oy Alan</router-link>
+    </div>
   </div>
 
-  <!-- Sağ Navım -->
-  <div class="flex items-center gap-16 ml-128">
-    <div v-if="!auth.isLoggedIn">
-      <router-link to="/login" class="transition-transform duration-200 hover:scale-120 cursor-pointer">Giriş Yap</router-link>
+  <div>
+    <div @click="openSeries = !openSeries" class="cursor-pointer flex justify-between items-center">
+      Diziler
+      <span>{{ openSeries ? '▲' : '▼' }}</span>
     </div>
-    <div v-else class="flex items-center gap-8">
-      <span class="transition-transform duration-200 hover:scale-120 cursor-pointer">{{ auth.userName }}</span>
-      <button @click="Logoutfonk" class="transition-transform duration-200 hover:scale-120 cursor-pointer">Çıkış Yap</button>
+    <div v-if="openSeries" class="flex flex-col ml-4 mt-2 gap-2">
+      <router-link to="/tv/popular" @click="MenuOpen = false">Popüler</router-link>
+      <router-link to="/tv/on_the_air" @click="MenuOpen=false ">Günün Programı</router-link>
+      <router-link to="/tv/airing_today" @click="MenuOpen = false">Televizyonda</router-link>
+      <router-link to="/tv/top_rated" @click="MenuOpen = false">En Çok Oy Alan</router-link>
     </div>
-<!-- 
-    <button @click="document.getElementById('search').focus()" class="text-gray-300 hover:text-white cursor-pointer">
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <circle cx="11" cy="11" r="7" stroke="currentColor" stroke-width="2" fill="none"/>
-        <line x1="16.5" y1="16.5" x2="21" y2="21" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-      </svg>
-    </button> -->
   </div>
-</nav>
+
+  <router-link to="/oyuncular" @click="MenuOpen = false">Oyuncular</router-link>
+  <router-link to="/hakkinda" @click="MenuOpen = false">Hakkımızda</router-link>
+  <router-link to="/iletisim" @click="MenuOpen = false">İletişim</router-link>
+</div>
+
+  </nav>
 
     <main class="p-6">
       <router-view />

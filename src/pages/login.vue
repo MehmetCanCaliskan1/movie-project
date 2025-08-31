@@ -41,12 +41,12 @@
       <div class="mt-4 flex justify-center font-bold hover:underline cursor-pointer">Şifremi Unuttum</div></a> -->
 
       
-        
+   <!--      
       <span 
       
       class="flex justify-center font-bold hover:underline cursor-pointer mt-4">
       Hesabınız Yok Mu? Kaydol
-      </span>
+      </span> -->
 
     </form>
   </div>

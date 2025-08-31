@@ -3,7 +3,7 @@ services:
   movie-project:
     build: .
     ports:
-      - "8181:81"
+      - "8181:80"
     volumes:
       - .:/app
     env_file:
